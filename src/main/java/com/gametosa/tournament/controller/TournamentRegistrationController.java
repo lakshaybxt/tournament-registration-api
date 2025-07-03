@@ -4,6 +4,7 @@ import com.gametosa.tournament.domain.dto.TournamentRegisterRequest;
 import com.gametosa.tournament.domain.dto.TournamentRegistrationDto;
 import com.gametosa.tournament.domain.entity.TournamentRegistration;
 import com.gametosa.tournament.domain.entity.User;
+import com.gametosa.tournament.mapper.TournamentRegistrationMapper;
 import com.gametosa.tournament.service.TournamentRegistrationService;
 import com.gametosa.tournament.service.UserService;
 import jakarta.validation.Valid;
@@ -23,17 +24,13 @@ public class TournamentRegistrationController {
 
     private final TournamentRegistrationService registrationService;
     private final UserService userService;
+    private final TournamentRegistrationMapper tournamentRegistrationMapper;
 
     @GetMapping
     public ResponseEntity<List<TournamentRegistrationDto>> getAllRegistration() {
         List<TournamentRegistration> registrations = registrationService.getAllRegistration();
         List<TournamentRegistrationDto> registrationDtos = registrations.stream()
-                .map(tournamentRegistration ->
-                        TournamentRegistrationDto.builder()
-                                .id(tournamentRegistration.getId())
-                                .userId(tournamentRegistration.getUser().getId())
-                                .tournamentId(tournamentRegistration.getTournament().getId())
-                                .build())
+                .map(tournamentRegistrationMapper::toDto)
                 .toList();
         return new ResponseEntity<>(registrationDtos, HttpStatus.OK);
     }
