@@ -9,24 +9,23 @@ import com.gametosa.tournament.service.AuthenticationService;
 import com.gametosa.tournament.service.JwtService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/auth")
+@RequestMapping("/api/v1/auth")
+@Slf4j
 @RequiredArgsConstructor
 public class AuthenticationController {
 
-    private final AuthenticationService authenticationService;
     private final JwtService jwtService;
+    private final AuthenticationService authenticationService;
 
     @PostMapping(path = "/signup")
-    public ResponseEntity<User> register(@Valid @RequestBody RegisterUserDto request) {
-        User registeredUser = authenticationService.signUp(request);
+    public ResponseEntity<User> register(@Valid @RequestBody RegisterUserDto registerUserDto) {
+        User registeredUser = authenticationService.signUp(registerUserDto);
         return ResponseEntity.ok(registeredUser);
     }
 
@@ -53,7 +52,7 @@ public class AuthenticationController {
     }
 
     @PostMapping(path = "/resend")
-    public ResponseEntity<?> resendVerificationCode(@Valid String email) {
+    public ResponseEntity<?> resendVerificationCode(@RequestParam String email) {
         try {
             authenticationService.resendVerificationCode(email);
             return ResponseEntity.ok("Verification code sent");

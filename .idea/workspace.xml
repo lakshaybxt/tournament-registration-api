@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="145fde40-4d13-4675-abe9-605b45ae8b8e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/domain/dto/TournamentRegistrationDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/mapper/TournamentRegistrationMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/controller/TournamentRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/controller/TournamentRegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/security/JwtSecurityFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/service/TournamentRegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/service/TournamentRegistrationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/service/impl/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/service/impl/AuthenticationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/service/impl/TournamentRegistrationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/service/impl/TournamentRegistrationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +30,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Dockerfile" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -34,10 +49,17 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Maven.tournament [clean,compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.tournament [clean,test].executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.TournamentApplication.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/lakshaybxt/Downloads/tournament-registration-api&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -51,6 +73,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.gametosa.tournament.service.impl" />
+      <recent name="com.gametosa.tournament.service" />
     </key>
   </component>
   <component name="RunManager">
@@ -94,7 +120,8 @@
       <workItem from="1751541014537" duration="32000" />
       <workItem from="1751541053142" duration="9000" />
       <workItem from="1751541085507" duration="12000" />
-      <workItem from="1751541187084" duration="4263000" />
+      <workItem from="1751541187084" duration="15486000" />
+      <workItem from="1751560049037" duration="2363000" />
     </task>
     <servers />
   </component>

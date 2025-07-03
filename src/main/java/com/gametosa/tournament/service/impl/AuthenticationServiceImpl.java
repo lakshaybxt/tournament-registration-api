@@ -15,6 +15,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -29,13 +30,23 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final EmailService emailService;
     private final AuthenticationManager authenticationManager;
     private final UserDetailsService userDetailsService;
+    private final BCryptPasswordEncoder encoder;
 
     @Override
     public User signUp(RegisterUserDto request) {
+
+        if (userRepository.existsByEmail(request.getEmail())) {
+            throw new RuntimeException("User with email " + request.getEmail() + " already exists");
+        }
+
+        if (userRepository.existsByUsername(request.getUsername())) {
+            throw new RuntimeException("User with username " + request.getUsername() + " already exists");
+        }
+
         User user = User.builder()
                 .username(request.getUsername())
                 .email(request.getEmail())
-                .password(request.getPassword())
+                .password(encoder.encode(request.getPassword()))
                 .verificationCode(generateVerificationCode())
                 .verificationCodeExpiration(LocalDateTime.now().plusMinutes(15))
                 .build();

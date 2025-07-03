@@ -17,27 +17,26 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 import java.io.IOException;
 
 @RequiredArgsConstructor
-public class JwtAuthenticationFilter extends OncePerRequestFilter {
+public class JwtSecurityFilter extends OncePerRequestFilter {
 
-    private final JwtService jwtService;
+    private final JwtService authenticationService;
     private final UserDetailsService userDetailsService;
-    private final HandlerExceptionResolver resolver;
+    private final HandlerExceptionResolver handlerExceptionResolver;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         try {
             String token = extractToken(request);
-
             if(token == null) {
                 filterChain.doFilter(request, response);
                 return;
             }
 
-            String username = jwtService.extractUsername(token);
+            String username = authenticationService.extractUsername(token);
 
             if(username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                 UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-                if(jwtService.validateToken(token, userDetails)) {
+                if(authenticationService.validateToken(token, userDetails)) {
                     UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(
                             userDetails,
                             null,
@@ -52,9 +51,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     }
                 }
             }
-
         } catch (Exception e) {
-            resolver.resolveException(request, response, null, e);
+            handlerExceptionResolver.resolveException(request, response, null, e);
             return;
         }
         filterChain.doFilter(request, response);
@@ -62,8 +60,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private String extractToken(HttpServletRequest request) {
         String authHeader = request.getHeader("Authorization");
-
-        if(authHeader != null && authHeader.startsWith("Bearer ")) {
+        if(null != authHeader && authHeader.startsWith("Bearer ")) {
             return authHeader.substring(7);
         }
         return null;

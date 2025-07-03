@@ -13,6 +13,7 @@ import com.gametosa.tournament.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -44,5 +45,10 @@ public class TournamentRegistrationServiceImpl implements TournamentRegistration
 
         registrationRepository.save(registration);
         return Map.of("message", "Registration successful");
+    }
+
+    @Override
+    public List<TournamentRegistration> getAllRegistration() {
+        return registrationRepository.findAll();
     }
 }

@@ -1,10 +1,10 @@
 package com.gametosa.tournament.controller;
 
 import com.gametosa.tournament.domain.dto.TournamentRegisterRequest;
+import com.gametosa.tournament.domain.dto.TournamentRegistrationDto;
+import com.gametosa.tournament.domain.entity.TournamentRegistration;
 import com.gametosa.tournament.domain.entity.User;
-import com.gametosa.tournament.repository.UserRepository;
 import com.gametosa.tournament.service.TournamentRegistrationService;
-import com.gametosa.tournament.service.TournamentService;
 import com.gametosa.tournament.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -22,6 +23,20 @@ public class TournamentRegistrationController {
 
     private final TournamentRegistrationService registrationService;
     private final UserService userService;
+
+    @GetMapping
+    public ResponseEntity<List<TournamentRegistrationDto>> getAllRegistration() {
+        List<TournamentRegistration> registrations = registrationService.getAllRegistration();
+        List<TournamentRegistrationDto> registrationDtos = registrations.stream()
+                .map(tournamentRegistration ->
+                        TournamentRegistrationDto.builder()
+                                .id(tournamentRegistration.getId())
+                                .userId(tournamentRegistration.getUser().getId())
+                                .tournamentId(tournamentRegistration.getTournament().getId())
+                                .build())
+                .toList();
+        return new ResponseEntity<>(registrationDtos, HttpStatus.OK);
+    }
 
     @PostMapping(path = "/register-tournament")
     public ResponseEntity<Map<String, String>> registerTournament(
