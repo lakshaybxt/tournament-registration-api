@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -28,7 +30,10 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    public boolean enabled;
+    private boolean enabled;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TournamentRegistration> registrations = new ArrayList<>();
 
     @Column(name = "verification_code")
     private String verificationCode;
