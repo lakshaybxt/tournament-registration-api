@@ -1,10 +1,10 @@
-# 🏆 Tournament Registration API
+# Tournament Registration API
 
 This is a Spring Boot-based RESTful API for managing tournaments and user registrations. It provides endpoints to create and fetch tournaments, and allows users to register for available tournaments securely.
 
 ---
 
-## 📦 Features
+## Features
 
 - Create and list tournaments
 - Register users for tournaments (with user identity validation)
@@ -15,7 +15,7 @@ This is a Spring Boot-based RESTful API for managing tournaments and user regist
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Tool / Library      | Purpose                              |
 |---------------------|--------------------------------------|
@@ -29,7 +29,7 @@ This is a Spring Boot-based RESTful API for managing tournaments and user regist
 | Lombok              | Boilerplate code reduction           |
 ---
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
 ### 1. Clone the Repository
 
@@ -37,7 +37,7 @@ This is a Spring Boot-based RESTful API for managing tournaments and user regist
 git clone https://github.com/your-username/tournament-registration-api.git
 cd tournament-registration-api
 ```
-## 2. 🛠️ Configure the Application
+## 2. Configure the Application
 
 Update your `application.properties` or `application.yml` with the following placeholders.  
 Replace them with your actual environment values or define them in your `.env` or system environment variables:
@@ -47,7 +47,7 @@ spring.datasource.url=${SPRING_DATASOURCE_URL}
 spring.datasource.username=${SPRING_DATASOURCE_USERNAME}
 spring.datasource.password=${SPRING_DATASOURCE_PASSWORD}
 ```
-## 3. ✉️ Configure Email Support
+## 3. Configure Email Support
 
 For email features (e.g., notifications, confirmations), configure your email credentials in `application.properties`:
 
@@ -55,23 +55,23 @@ For email features (e.g., notifications, confirmations), configure your email cr
 spring.mail.username=${SUPPORT_EMAIL}
 spring.mail.password=${APP_PASSWORD}  # This should be an App Password
 ```
-> ✅ **Note:** The `APP_PASSWORD` should be generated from your Google account under  
+> **Note:** The `APP_PASSWORD` should be generated from your Google account under  
 > **Security > App passwords** (recommended instead of your main password).
 
 ---
 
-## 4. 🚀 Build and Run
+## 4. Build and Run
 
 Use the Maven wrapper to build and start the application:
 
 ```bash
 ./mvnw spring-boot:run
 ```
-> 🟡 **Ensure your database service is running** before starting the app.
+> **Ensure your database service is running** before starting the app.
 
 ---
 
-## 5. 🐳 Docker (PostgreSQL Setup)
+## 5. Docker (PostgreSQL Setup)
 
 If you want to spin up a local PostgreSQL instance using Docker, use the following `docker-compose` service snippet:
 
@@ -85,7 +85,7 @@ services:
     environment:
       POSTGRES_PASSWORD: changemeinprod!
 ```
-> 📌 This runs PostgreSQL on `localhost:5434`.  
+> This runs PostgreSQL on `localhost:5434`.  
 > Make sure your `spring.datasource.url` in the application config matches accordingly:
 
 ```properties
@@ -94,7 +94,7 @@ spring.datasource.url=jdbc:postgresql://localhost:5434/your_db_name
 
 ---
 
-## 📚 Want to see more? 
+## Want to see more? 
 
 For detailed API reference, request/response models, and usage examples,  
 **See documentation here:**  
