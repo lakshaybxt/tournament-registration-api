@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="145fde40-4d13-4675-abe9-605b45ae8b8e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/controller/TournamentRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gametosa/tournament/controller/TournamentRegistrationController.java" afterDir="false" />
-    </list>
+    <list default="true" id="145fde40-4d13-4675-abe9-605b45ae8b8e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -106,7 +104,7 @@
       <workItem from="1751541053142" duration="9000" />
       <workItem from="1751541085507" duration="12000" />
       <workItem from="1751541187084" duration="15486000" />
-      <workItem from="1751560049037" duration="2833000" />
+      <workItem from="1751560049037" duration="2886000" />
     </task>
     <servers />
   </component>
